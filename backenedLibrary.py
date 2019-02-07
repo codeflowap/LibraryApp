@@ -30,7 +30,47 @@ def search(title="",author="",year="",isbn=""):
     conn.close()
     return rows
 
+def delete(id):
+    conn=sqlite3.connect("book.db")
+    cur=conn.cursor()
+    cur.execute("DELETE FROM book WHERE id=?", (id,))
+    conn.commit()
+    conn.close()
+
 
 connect()
-#insert("Statistical Learning", "J. Hastie", 2012, 88987632)
+#insert("Statistical Learning", "J.Hastie", 2012, 88987632)
+delete(4)
+print(view())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 print(search(author="A. Chalres"))
