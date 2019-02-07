@@ -21,8 +21,16 @@ def view():
     rows=cur.fetchall()
     conn.close()
     return rows
-    
+
+def search(title="",author="",year="",isbn=""):
+    conn=sqlite3.connect("book.db")
+    cur=conn.cursor()
+    cur.execute("SELECT * FROM book WHERE title=? OR author=? OR year=? OR isbn=?", (title,author,year,isbn))
+    rows=cur.fetchall()
+    conn.close()
+    return rows
+
+
 connect()
-insert("Statistical Learning", "J. Hastie", 2012, 88987632)
-insert("Machile and AI" , "A. Chalres", 2012, 88987632)
-print(rows)
+#insert("Statistical Learning", "J. Hastie", 2012, 88987632)
+print(search(author="A. Chalres"))
