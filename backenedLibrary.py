@@ -23,4 +23,6 @@ def view():
     return rows
     
 connect()
+insert("Statistical Learning", "J. Hastie", 2012, 88987632)
+insert("Machile and AI" , "A. Chalres", 2012, 88987632)
 print(rows)
