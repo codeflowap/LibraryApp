@@ -33,5 +33,11 @@ e4.grid(row=1,column=3)
 list1=Listbox(window, height=6,width=35)
 list1.grid(row=2,column=0,rowspan=6,columnspan=2)
 
+sb1=Scrollbar(window)
+sb1.grid(row=2,column=2)
+
+list1.configure(yscrollcommand=sb1.set)
+sb1.configure(command=list1.yview)
+
 
 window.mainloop()
