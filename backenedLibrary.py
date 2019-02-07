@@ -37,10 +37,18 @@ def delete(id):
     conn.commit()
     conn.close()
 
+def update(id,title,author,year,isbn):
+    conn=sqlite3.connect("book.db")
+    cur=conn.cursor()
+    cur.execute("UPDATE book SET title=?, author=?, year=?, isbn=? WHERE id=?",(title,author,year,isbn,id))
+    conn.commit()
+    conn.close()
+
 
 connect()
 #insert("Statistical Learning", "J.Hastie", 2012, 88987632)
-delete(4)
+#delete(4)
+update(1,"Statistical Learning", "Ahmad Pour", 2018, 67556644 )
 print(view())
 
 
