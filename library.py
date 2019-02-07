@@ -3,6 +3,7 @@ import backendLibrary
 
 #View all button
 def view_command():
+    list1.delete(0,END) # deleting rows already in list1 from 0 to END
     for row in backendLibrary.view():
         list1.insert(END,row) # END: at the end of list1
     
